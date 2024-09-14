@@ -17,4 +17,6 @@ class StackI<T> {
       return _storage.removeLast();
     }
   }
+
+  T peek() => _storage.last;
 }

@@ -1,6 +1,6 @@
 // example :
-// infix   = 5 / 5 + 2 - 1 * 9 = 18
-// postfix = 5 5 / 2 + 9 1 * - = 18
+// infix   = 5 / 5 + 2 - 1 * 9 = -6
+// postfix = 5 5 / 2 + 9 1 * - = -6
 import 'stack.dart';
 import 'dart:io';
 

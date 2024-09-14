@@ -1,5 +1,5 @@
-class Stack<T> {
-  Stack() : _storage = <T>[];
+class StackI<T> {
+  StackI() : _storage = <T>[];
   final List<T> _storage;
   @override
   String toString() {

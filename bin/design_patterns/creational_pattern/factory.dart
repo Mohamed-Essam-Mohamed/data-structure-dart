@@ -89,3 +89,28 @@ void main() {
   ProductElectronics tv = ProductElectronics.create(ProductType.tv);
   tv.show();
 }
+
+/// example 2 :
+enum AlertType { success, error }
+
+abstract class Alert {
+  void showAlert();
+  factory Alert.createAlert(AlertType type) {
+    switch (type) {
+      case AlertType.success:
+        return SuccessAlert();
+      case AlertType.error:
+        return ErrorAlert();
+    }
+  }
+}
+
+class SuccessAlert implements Alert {
+  @override
+  void showAlert() => print("Success Alert");
+}
+
+class ErrorAlert implements Alert {
+  @override
+  void showAlert() => print("Error Alert");
+}

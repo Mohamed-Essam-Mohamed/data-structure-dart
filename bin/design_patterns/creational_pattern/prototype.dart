@@ -26,6 +26,22 @@ class UserProfile {
   }
 }
 
+// Example 2 :
+class Product {
+  String name;
+  double price;
+
+  Product(this.name, this.price);
+
+  Product clone() {
+    return Product(name, price);
+  }
+
+  void displayInfo() {
+    print("Product: $name, Price: $price");
+  }
+}
+
 void main() {
   // Original user profile
   var originalProfile = UserProfile(
@@ -50,4 +66,17 @@ void main() {
   // Output both profiles
   print("Original Profile: $originalProfile");
   print("Cloned Profile: $clonedProfile");
+  // Example 2 :
+  Product originalProduct = Product("Laptop", 1500.0);
+
+  Product productCopy1 = originalProduct.clone();
+  productCopy1.price = 1400.0;
+
+  Product productCopy2 = originalProduct.clone();
+  productCopy2.name = "Gaming Laptop";
+  productCopy2.price = 2000.0;
+
+  originalProduct.displayInfo(); // Product: Laptop, Price: 1500.0
+  productCopy1.displayInfo(); // Product: Laptop, Price: 1400.0
+  productCopy2.displayInfo(); // Product: Gaming Laptop, Price: 2000.0
 }

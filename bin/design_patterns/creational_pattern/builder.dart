@@ -53,3 +53,81 @@ void main() {
   print(
       anotherPizza); // Output: Pizza(size: Medium, cheese: false, toppings: [Olives])
 }
+/// example 2
+// class CustomAlertDialogBuilder {
+//   String? title;
+//   String? content;
+//   String? positiveButtonText;
+//   String? negativeButtonText;
+//   VoidCallback? onPositivePressed;
+//   VoidCallback? onNegativePressed;
+
+//   CustomAlertDialogBuilder setTitle(String title) {
+//     this.title = title;
+//     return this;
+//   }
+
+//   CustomAlertDialogBuilder setContent(String content) {
+//     this.content = content;
+//     return this;
+//   }
+
+//   CustomAlertDialogBuilder setPositiveButtonText(String text) {
+//     positiveButtonText = text;
+//     return this;
+//   }
+
+//   CustomAlertDialogBuilder setNegativeButtonText(String text) {
+//     negativeButtonText = text;
+//     return this;
+//   }
+
+//   CustomAlertDialogBuilder setOnPositivePressed(VoidCallback onPressed) {
+//    onPositivePressed = onPressed;
+//     return this;
+//   }
+
+//   CustomAlertDialogBuilder setOnNegativePressed(VoidCallback onPressed) {
+//     onNegativePressed = onPressed;
+//     return this;
+//   }
+
+//   AlertDialog build() {
+//     return AlertDialog(
+//       title: Text(title ?? 'تنبيه'),
+//       content: Text(content ?? 'هناك خطأ ما'),
+//       actions: [
+//         if (negativeButtonText != null)
+//           TextButton(
+//             onPressed: onNegativePressed,
+//             child: Text(negativeButtonText!),
+//           ),
+//         if (positiveButtonText != null)
+//           TextButton(
+//             onPressed: onPositivePressed,
+//             child: Text(positiveButtonText!),
+//           ),
+//       ],
+//     );
+//   }
+// }
+
+// void showCustomDialog(BuildContext context) {
+//   final dialog = CustomAlertDialogBuilder()
+//       .setTitle('خطأ في الاتصال')
+//       .setContent('يرجى التحقق من اتصال الإنترنت وإعادة المحاولة.')
+//       .setPositiveButtonText('موافق')
+//       .setOnPositivePressed(() {
+//         Navigator.of(context).pop();
+//       })
+//       .setNegativeButtonText('إلغاء')
+//       .setOnNegativePressed(() {
+//         Navigator.of(context).pop();
+//       })
+//       .build();
+
+//   showDialog(
+//     context: context,
+//     builder: (BuildContext context) => dialog,
+//   );
+// }

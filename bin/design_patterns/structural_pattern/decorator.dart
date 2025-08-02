@@ -186,3 +186,37 @@ class ApplicationConfigurator {
     print(salary);
   }
 }
+
+////////////////
+///
+abstract class Notifier {
+  void notify();
+}
+
+class EmailNotifier implements Notifier {
+  String email;
+  EmailNotifier(this.email);
+  @override
+  void notify() {
+    print(
+        "Your latest operation was executed successfully. Email sent to $email");
+  }
+}
+// 
+class  NotifierDecorator implements Notifier {
+  final Notifier wrappee;
+  NotifierDecorator(this.wrappee);
+  @override
+  void notify() {
+    wrappee.notify();
+  }
+}
+
+class SMSNotifierDecorator extends NotifierDecorator {
+  int phoneNumber;
+  SMSNotifierDecorator(super.wrappee , this.phoneNumber);
+  @override
+  void notify() {
+    print("Your latest operation was executed successfully. SMS sent");
+  }
+}

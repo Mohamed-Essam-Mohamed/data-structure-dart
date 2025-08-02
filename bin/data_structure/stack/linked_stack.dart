@@ -25,6 +25,7 @@ class LinkedStack<T> {
     } else {
       final popped = top!.data;
       top = top!.next;
+      length--;
       return popped;
     }
   }
@@ -42,5 +43,25 @@ class LinkedStack<T> {
       print(current.data);
       current = current.next;
     }
+  }
+}
+
+class LinkedNewStack<T> {
+  Node<T>? top;
+  late int length;
+  LinkedNewStack() {
+    top = null;
+    length = 0;
+  }
+
+  void push(T element) {
+    top = Node<T>(data: element, next: top);
+    length++;
+  }
+
+  T? pop() {
+    final popped = top;
+    top = top?.next;
+    return popped?.data;
   }
 }

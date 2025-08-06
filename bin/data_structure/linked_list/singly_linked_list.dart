@@ -7,13 +7,15 @@ class Node<T> {
 
 class SinglyLinkedList<T> {
   Node<T>? head;
+  Node<T>? tail;
   late int length;
 
   SinglyLinkedList() {
     head = null;
+    tail = null;
     length = 0;
   }
-  bool isEmpty() => head == null;
+  bool isEmpty() => head == null && tail == null;
   bool isNotEmpty() => !isEmpty();
   void add(T element) {
     Node<T> newElement = Node(element, null);

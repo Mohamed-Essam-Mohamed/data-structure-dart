@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 // void main() {
@@ -39,33 +40,49 @@ import 'dart:developer';
 // }
 /// Time Complexity
 ///
-Map<int, int> memo = {};
+// Map<int, int> memo = {};
 
-int fib(int n) {
-  if (n <= 1) return n; // 1
-  if (memo.containsKey(n)) return memo[n]!; // 1
-  memo[n] = fib(n - 1) + fib(n - 2); //
-  return memo[n]!;
-}
+// int fib(int n) {
+//   if (n <= 1) return n; // 1
+//   if (memo.containsKey(n)) return memo[n]!; // 1
+//   memo[n] = fib(n - 1) + fib(n - 2); //
+//   return memo[n]!;
+// }
 
-int binarySearch(List<int> arr, int target) {
-  int low = 0;
-  int high = arr.length - 1;
+// int binarySearch(List<int> arr, int target) {
+//   int low = 0;
+//   int high = arr.length - 1;
 
-  while (low <= high) {
-    int mid = (low + high) ~/ 2; // complexity 1
-    if (arr[mid] == target) {
-      return mid; // base case O(1)
-    } else if (arr[mid] < target) {
-      low = mid + 1; // complexity 1 in while loop
-    } else {
-      high = mid - 1; // complexity 1
-    }
-  }
+//   while (low <= high) {
+//     int mid = (low + high) ~/ 2; // complexity 1
+//     if (arr[mid] == target) {
+//       return mid; // base case O(1)
+//     } else if (arr[mid] < target) {
+//       low = mid + 1; // complexity 1 in while loop
+//     } else {
+//       high = mid - 1; // complexity 1
+//     }
+//   }
 
-  return -1;
+//   return -1;
+// }
+
+// void main() {
+//   print('start');
+//   Future(() => print('future'));
+//   scheduleMicrotask(() => print('micro'));
+//   print('end');
+// }
+
+class User {
+  String name;
+  String email;
+  User(this.name, this.email);
 }
 
 void main() {
-  print(fib(6));
+  User user1 = User('mohamed', 'mohamed@gmail');
+  User user2 = user1;
+  // user2.name = 'esam';
+  print(user1.name);
 }

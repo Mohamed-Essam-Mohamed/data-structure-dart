@@ -1,11 +1,11 @@
 // example :
 // infix   = 5 / 5 + 2 - 1 * 9 = -6
 // postfix = 5 5 / 2 + 9 1 * - = -6
-import 'stack.dart';
+import 'builder_from_scrat/stack.dart';
 import 'dart:io';
 
 void main() {
-  StackI<String> stack = StackI();
+  Stack<String> stack = Stack();
   print("Enter a Postfix Expression: ( e.g. 4 5 * )\n ");
   String input = stdin.readLineSync()!;
   List<String> postfix = input.split(' ');
@@ -22,8 +22,7 @@ void main() {
   print("Result: ${stack.pop()}");
 }
 
-bool isOperator(String char) =>
-    char == '/' || char == '*' || char == '-' || char == '+';
+bool isOperator(String char) => char == '/' || char == '*' || char == '-' || char == '+';
 
 int? performOperation(int op1, int op2, String op) {
   int? result;

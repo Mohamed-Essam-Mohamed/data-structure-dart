@@ -1,11 +1,11 @@
 // example :
 // infix   = 5 / 5 + 2 - 1 * 9
 // covert  infix to postfix = 5 5 / 2 + 9 1 * -
-import 'stack.dart';
+import 'builder_from_scrat/stack.dart';
 import 'dart:io';
 
 void main() {
-  StackI<String> stack = StackI();
+  Stack<String> stack = Stack();
   // 2 + ( ( 8 + 2 * 3 ) / 2) - 1 => 2 8 2 3 * + 2 / + 1 -
   print("Enter the number infix");
   String input = stdin.readLineSync()!;
@@ -16,7 +16,7 @@ void main() {
     if (isOperand(infix[i])) {
       finalResult.add(infix[i]);
     } else if (isOperator(infix[i])) {
-      while (!stack.isEmpty() &&
+      while (stack.isNotEmpty &&
           getOperatorWeight(stack.peek()) >= getOperatorWeight(infix[i])) {
         finalResult.add(stack.pop());
       }
@@ -24,12 +24,12 @@ void main() {
     } else if (infix[i] == "(") {
       stack.push("(");
     } else if (infix[i] == ")") {
-      while (!stack.isEmpty() && stack.peek() != "(") {
+      while (stack.isNotEmpty && stack.peek() != "(") {
         finalResult.add(stack.pop());
       }
       stack.pop();
     }
-    while (!stack.isEmpty()) {
+    while (stack.isNotEmpty) {
       finalResult.add(stack.pop());
     }
   }

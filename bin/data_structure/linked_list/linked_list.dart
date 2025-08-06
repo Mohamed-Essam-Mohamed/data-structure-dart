@@ -1,6 +1,10 @@
 // Copyright (c) 2023 Kodeco Inc.
 // For full license & permission details, see LICENSE.
-
+/// Type Linked List
+/// 1 - Single Linked List
+/// 2 - Double Linked List
+/// 3 - Circular Linked List
+/// 4 - Circular Doubly Linked List
 class Node<T> {
   Node({required this.value, this.next});
   T value;

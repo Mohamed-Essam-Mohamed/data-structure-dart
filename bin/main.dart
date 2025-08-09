@@ -1,88 +1,62 @@
-import 'dart:async';
-import 'dart:developer';
+import 'dart:collection';
 
-// void main() {
-//   List<int> array = [1, 2, 3, 4, 5];
-//   array.forEach((element) => print('the number $element is hashed ${element.hashCode}'));
-//   List<User> users = [User('mohamed', 'mohamed@gmail'), User('esam', 'esam@gmail')];
-//   users.forEach(
-//       (element) => print('the user ${element.name} is hashed ${element.hashCode}'));
-// }
+final class User extends LinkedListEntry<User> {
+  final int id;
+  final String name;
+  User(this.id, this.name);
 
-// class User {
-//   final String name;
-//   final String email;
-//   User(this.name, this.email);
-// }
-
-///       0 , 1 , 1 , 2 , 3 , 5 , 8
-/// index:0 , 1 , 2 , 3 , 4 , 5 , 6
-/// input index 6
-/// output 8
-///
-/// init current Index = 0
-/// base case if input currentIndex == index return
-/// else
-/// return fun(currentIndex - 1) + fun(currentIndex - 2)
-///
-///
-/// base case index = 1
-/// if index <= 1
-///     return index
-/// return fun(index - 1) + fun(index - 2)
-
-// int fib(int index) {
-//   if (index <= 1) { // const 1
-//     return index;// const 1
-//   }
-//   return fib(index - 1) + fib(index - 2); //  n - 1 + n - 2
-
-// }
-/// Time Complexity
-///
-// Map<int, int> memo = {};
-
-// int fib(int n) {
-//   if (n <= 1) return n; // 1
-//   if (memo.containsKey(n)) return memo[n]!; // 1
-//   memo[n] = fib(n - 1) + fib(n - 2); //
-//   return memo[n]!;
-// }
-
-// int binarySearch(List<int> arr, int target) {
-//   int low = 0;
-//   int high = arr.length - 1;
-
-//   while (low <= high) {
-//     int mid = (low + high) ~/ 2; // complexity 1
-//     if (arr[mid] == target) {
-//       return mid; // base case O(1)
-//     } else if (arr[mid] < target) {
-//       low = mid + 1; // complexity 1 in while loop
-//     } else {
-//       high = mid - 1; // complexity 1
-//     }
-//   }
-
-//   return -1;
-// }
-
-// void main() {
-//   print('start');
-//   Future(() => print('future'));
-//   scheduleMicrotask(() => print('micro'));
-//   print('end');
-// }
-
-class User {
-  String name;
-  String email;
-  User(this.name, this.email);
+  @override
+  String toString() => '$id : $name';
 }
 
+// void main() {
+//   final linkedList = LinkedList<User>();
+// //   linkedList.addAll([User(1, 'A'), User(2, 'B'), User(3, 'C')]);
+// //   print(linkedList.first); // 1 : A
+// //   print(linkedList.last); // 3 : C
+
+// //   // Add new item after first item.
+// //   linkedList.first.insertAfter(User(15, 'E'));
+// //   // Add new item before last item.
+// //   linkedList.last.insertBefore(User(10, 'D'));
+// //   // Iterate items.
+// //   for (var entry in linkedList) {
+// //     print(entry);
+// //     // 1 : A
+// //     // 15 : E
+// //     // 2 : B
+// //     // 10 : D
+// //     // 3 : C
+// //   }
+
+// //   // Remove item using index from list.
+// //   linkedList.elementAt(2).unlink();
+// //   print(linkedList); // (1 : A, 15 : E, 10 : D, 3 : C)
+// //   // Remove first item.
+// //   linkedList.first.unlink();
+// //   print(linkedList); // (15 : E, 10 : D, 3 : C)
+// //   // Remove last item from list.
+// //   linkedList.remove(linkedList.last);
+// //   print(linkedList); // (15 : E, 10 : D)
+// //   // Remove all items.
+// //   linkedList.clear();
+// //   print(linkedList.length); // 0
+// //   print(linkedList.isEmpty); // true
+//   User mohamed = User(1, 'Mohamed');
+//   print(mohamed);
+// }
+
 void main() {
-  User user1 = User('mohamed', 'mohamed@gmail');
-  User user2 = user1;
-  // user2.name = 'esam';
-  print(user1.name);
+  List<String> names = ["Ali", "Sara", "Omar"];
+
+  // Iterable → using for-in
+  for (var name in names) {
+    print(name);
+  }
+
+  // Iterator → using while
+  var iterator = names.iterator;
+  while (iterator.moveNext()) {
+    print(iterator.current);
+  }
 }

@@ -47,16 +47,6 @@ final class User extends LinkedListEntry<User> {
 // }
 
 void main() {
-  List<String> names = ["Ali", "Sara", "Omar"];
-
-  // Iterable → using for-in
-  for (var name in names) {
-    print(name);
-  }
-
-  // Iterator → using while
-  var iterator = names.iterator;
-  while (iterator.moveNext()) {
-    print(iterator.current);
-  }
+  int num = 12;
+  print(num.bitLength);
 }

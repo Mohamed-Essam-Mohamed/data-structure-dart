@@ -47,6 +47,8 @@ final class User extends LinkedListEntry<User> {
 // }
 
 void main() {
-  int num = 12;
-  print(num.bitLength);
+  List<User> users = [User(1, "Mohamed"), User(2, "Eid"), User(3, "Ali")];
+  for (User usr in users) {
+    print(usr);
+  }
 }
